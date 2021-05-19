@@ -56,9 +56,9 @@
                     <label for="caption" class="col-md-4 col-form-label text-md-right">Profile Image</label>
 
                     <div class="col-md-6">
-                        <input type="file" name="image" id="image">
+                        <input type="file" name="profile_image" id="profile_image">
 
-                        @error('image')
+                        @error('profile_image')
                         <strong>{{ $message }}</strong>
                         @enderror
                     </div>

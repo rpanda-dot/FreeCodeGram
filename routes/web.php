@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\FollowsController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -28,4 +29,4 @@ Route::get('/profile/{user}', [App\Http\Controllers\ProfileController::class, 's
 Route::get('/profile/{user}/edit', [App\Http\Controllers\ProfileController::class, 'edit'])->name('profile.edit');
 Route::patch('/profile/{user}', [App\Http\Controllers\ProfileController::class, 'update'])->name('profile.update');
 
-
+Route::post('follow/{user}', [FollowsController::class, 'store']);
