@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\FollowsController;
+use App\Http\Controllers\MatricsController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -20,11 +21,11 @@ Route::get('/', function () {
 
 Auth::routes();
 
-
+Route::get('/test', [MatricsController::class, 'test']);
+// Route::get('/', [App\Http\Controllers\PostsController::class, 'index'])->name('posts.index');
 Route::post('/p', [App\Http\Controllers\PostsController::class, 'store'])->name('posts.store');
 Route::get('/p/create', [App\Http\Controllers\PostsController::class, 'create'])->name('posts.create');
 Route::get('/p/{post}', [App\Http\Controllers\PostsController::class, 'show'])->name('posts.show');
-Route::get('/', [App\Http\Controllers\PostsController::class, 'index'])->name('posts.index');
 
 Route::get('/profile/{user}', [App\Http\Controllers\ProfileController::class, 'show'])->name('profile.show');
 Route::get('/profile/{user}/edit', [App\Http\Controllers\ProfileController::class, 'edit'])->name('profile.edit');

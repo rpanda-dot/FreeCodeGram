@@ -1,0 +1,23 @@
+{
+    "name": "raja/quickmetrics-laravel",
+    "description": "Package development demo",
+    "authors": [
+        {
+            "name": "Rajaram Panda",
+            "email": "rpanda@argusoft.in"
+        }
+    ],
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "Raja\\QuickMetrics\\":"src/"
+        }
+    },
+    "extra": {
+        "laravel":{
+            "providers":[
+                "Raja\\QuickMetrics\\QuickMetricsServiceProvider"
+            ]
+        }
+    }
+}
