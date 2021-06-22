@@ -2,14 +2,21 @@
     "name": "laravel/laravel",
     "type": "project",
     "description": "The Laravel Framework.",
-    "keywords": ["framework", "laravel"],
+    "keywords": [
+        "framework",
+        "laravel"
+    ],
     "repositories": {
-        "quickmetrics-laravel":{
+        "quickmetrics-laravel": {
             "type": "path",
             "url": "packages/raja/quickmetrics-laravel",
             "options": {
                 "symlink": true
             }
+        },
+        "hooks": {
+            "type": "composer",
+            "url": "https://larapack.io"
         }
     },
     "license": "MIT",
@@ -23,7 +30,8 @@
         "laravel/telescope": "^4.4",
         "laravel/tinker": "^2.5",
         "laravel/ui": "^3.2",
-        "raja/quickmetrics-laravel": "@dev"
+        "raja/quickmetrics-laravel": "@dev",
+        "tcg/voyager": "^1.4"
     },
     "require-dev": {
         "brianium/paratest": "^6.3",

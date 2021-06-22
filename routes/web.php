@@ -15,14 +15,14 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 
 Auth::routes();
 
 Route::get('/test', [MatricsController::class, 'test']);
-// Route::get('/', [App\Http\Controllers\PostsController::class, 'index'])->name('posts.index');
+Route::get('/', [App\Http\Controllers\PostsController::class, 'index'])->name('posts.index');
 Route::post('/p', [App\Http\Controllers\PostsController::class, 'store'])->name('posts.store');
 Route::get('/p/create', [App\Http\Controllers\PostsController::class, 'create'])->name('posts.create');
 Route::get('/p/{post}', [App\Http\Controllers\PostsController::class, 'show'])->name('posts.show');
@@ -32,3 +32,8 @@ Route::get('/profile/{user}/edit', [App\Http\Controllers\ProfileController::clas
 Route::patch('/profile/{user}', [App\Http\Controllers\ProfileController::class, 'update'])->name('profile.update');
 
 Route::post('follow/{user}', [FollowsController::class, 'store']);
+
+
+Route::group(['prefix' => 'admin'], function () {
+    Voyager::routes();
+});

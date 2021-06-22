@@ -9,7 +9,11 @@ use Intervention\Image\Facades\Image;
 
 class ProfileController extends Controller
 {
-    //
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+    
     public function show(User $user)
     {
         // $postCount = $user->posts()->count();
@@ -24,9 +28,9 @@ class ProfileController extends Controller
 
 
 
-        $followingCount = Cache::remember('count.followings' . $user->id, now()->addSeconds(30), function () use ($user) {
-            $user->followings()->count();
-        });
+        // $followingCount = Cache::remember('count.followings' . $user->id, now()->addSeconds(30), function () use ($user) {
+        $followingCount = $user->followings()->count();
+        // });
         $follows = (auth()->user()) ? auth()->user()->followings->contains($user->id) : false;
         return view('profiles.index', compact('user', 'follows', 'followingCount', 'followerCount', 'postCount'));
     }

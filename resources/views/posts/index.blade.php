@@ -2,7 +2,7 @@
 
 @section('content')
     <div class="container">
-        @foreach ($posts as $post)
+        @forelse ($posts as $post)
             <div class="row">
                 <div class="col-6 offset-3">
                     <a href="/profile/{{ $post->user->id }}">
@@ -42,7 +42,15 @@
 
                 </div>
             </div>
-        @endforeach
+        
+            @empty
+                
+            <div>
+                <p>
+                    No Posts for you.
+                </p>
+            </div>
+            @endforelse
 
         <div class="row">
             <div class="col-12 d-flex justify-content-center">
